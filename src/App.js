@@ -1,24 +1,37 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from "react";
 import './App.css';
+import { Routes, Route } from "react-router-dom";
+import {
+   Signup,
+   Loading,
+   Home,
+   Calculator,
+   Terminal,
+   MyProjects,
+   EmailMe
+} from "./pages"
 
 function App() {
+  // const [loading, setLoading] = useState(true);
+
+  // if (loading) {
+  //   return (
+  //     <Route path="/loading" element={<Loading />}></Route>
+  //     );
+  // }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Signup />}></Route>
+        <Route path="/home" element={<Home />}>
+          <Route path="/calc" element={<Calculator />}></Route>
+          <Route path="/terminal" element={<Terminal />}></Route>
+          <Route path="/myprojects" element={<MyProjects />}></Route>
+          <Route path="/emailme" element={<EmailMe />}></Route>
+        </Route>  
+      </Routes>
+    </>
   );
 }
 

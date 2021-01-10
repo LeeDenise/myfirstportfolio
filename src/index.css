@@ -11,3 +11,216 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#root {
+  background-color: black;
+}
+
+#loading {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('./images/bootingscreen.gif');
+
+  height: 100vh;
+  display: absolute;
+  justify-content: center;
+  align-items: center;
+}
+
+#signup {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('./images/welcome.png');
+
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-image: url('./images/XP\ Wallpaper.jpeg');
+
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* main icons */
+.main_icons_container {
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+ul li {
+  list-style: none;
+}
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+#main_icons {
+  left: 0;
+  bottom: 0;
+  width: 100px;
+}
+
+#main_icons li {
+  left: 0;
+  top: 0;
+  text-align: center;
+  position: relative;
+}
+
+#main_icons li#my_computer a {
+  background-image: url('./images/computer.png');
+  background-size: auto;
+}
+
+#main_icons li#my_documents a {
+  background-image: url('./images/folder_home.png');
+  background-size: auto;
+}
+
+#main_icons li#contactme a {
+  background-image: url('./images/applications-email-panel.png');
+  background-size: auto;
+}
+
+#main_icons li#recycle_bin a {
+  background-image: url('./images/user-trash-full.png');
+  background-size: auto;
+}
+
+#main_icons li#terminal a {
+  background-image: url('./images/utilities-terminal.png');
+  background-size: auto;
+}
+
+#main_icons li#github a {
+  background-image: url('./images/icons8-github-32.png');
+  background-size: auto;
+}
+
+#main_icons li#linkedin a {
+  background-image: url('./images/icons8-linkedin-32Blue.png');
+  background-size: auto;
+}
+
+#main_icons li a {
+  font-weight: 700;
+  display: block;
+  margin: 10px;
+  padding: 40px 0 10px 0;
+  width: 90px;
+  background-position: 50% 5px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+}
+
+a:link, a:visited, a:active, a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Task Bar */
+.taskbar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 34px;
+  background: #2257D6 url('./images/taskbar.png') repeat-x 0 0;
+}
+
+#start {
+  width: 100px;
+  height: 34px;
+}
+
+#starbutton a {
+  text-transform: lowercase;
+}
+
+#startbutton span {
+  top: 0;
+  left: 0;
+  width: 102px;
+  height: 34px;
+  background: transparent url('./images/start_button2.png') no-repeat 0 0;
+  position: absolute;
+}
+
+#startbutton span.starthovered {
+  background-position: 0 -34px;
+}
+#startbutton span.startclicked {
+  background-position: 0 -69px;
+}
+
+#quicklaunch{
+  position: absolute;
+  padding-left: 10px;
+  top: 0;
+  z-index: 50;
+  left: 110px;
+  background: transparent url('./images/taskbar_resize.png') no-repeat 0 0;
+}
+
+#quicklaunch li {
+  float: left;
+  color: #d4cdcd
+}
+
+#quicklaunch li a {
+  position: relative;
+  top: 0;
+  overflow: hidden;
+  display: block;
+  width: 25px;
+  margin: 0;
+}
+
+#quicklaunch li a span {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-position: 50% 0;
+  background-color: transparent;
+  background-repeat: no-repeat;
+}
+#quicklaunch li#quick_desktop a span {
+  background-image: url('./images/icons8-linkedin-16.png');
+}
+#quicklaunch li#quick_firefox a span {
+  background-image: url('./images/icons8-github-16.png');
+}
+
+  
+
+/* 
+.calculator {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+

@@ -1,21 +1,30 @@
 import React, { useState } from "react"
-import {useNavigate, Outlet} from "react-router-dom";
-import Button from 'react-bootstrap/Button';
+import { useNavigate, Outlet } from "react-router-dom";
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Jumbotron from 'react-bootstrap/Jumbotron';
-
-
+import useSound from 'use-sound';
+import boopSfx from './sounds/Windows_XP_Startup.mp3';
+import springprojectpic from './images/springboot.png';
+import mlprojectpic from './images/watermelon.png';
+import mypicture from './images/denise.jpeg';
+import './form-submission-handler.js'
 /**
- * TODO add account login page to show my name
  * TODO add function to move window 
- * TODO add loading sound
  */
-export function Loading() {
+export function Loading(props) {
+    const navigate = useNavigate();
+    const routeChange = () => {
+        navigate('/signup')
+    }
+
+    setTimeout(() => {
+        routeChange()
+    }, 1000)
+
     return (
         <>
         <Jumbotron id="loading">
-
 
         </Jumbotron>
         </>
@@ -23,10 +32,29 @@ export function Loading() {
 }
 
 export function Signup() {
+    const [play] = useSound(
+        boopSfx,
+      { volume: 0.5 }
+    );
+
     return (
         <>
         <Container id="signup">
-            
+            <Row id="user">
+
+            <a
+            href="#"
+            title="Signin"
+            role="button"
+            onClick={() => {
+                play();
+                setTimeout(() => {
+                    window.location.href="/home"
+                }, 3500)
+            }}>
+                <span></span>Denise Lee
+            </a>
+            </Row>
         </Container>
         </>
     )
@@ -41,15 +69,15 @@ export function Home() {
                 <li id="my_computer">
                     <a
                     style={{textShadow: '0.5px 0.5px black'}}
-                    href="/home"
-                    title="Shows the disk drives and hardware connected to this computer."
-                    ><span></span>Denise's Computer</a
+                    href="/home/myprofile"
+                    title="Shows Denise's profile"
+                    ><span></span>Denise Lee</a
                     >
                 </li>
                 <li id="my_documents">
                     <a
                     href="/home/myprojects"
-                    title="Contains letters, reports, and other documents and files."
+                    title="Show Denise's projects."
                     ><span></span>My Projects</a
                     >
                 </li>
@@ -60,24 +88,24 @@ export function Home() {
                     ><span></span>Contact Me</a
                     >
                 </li>
-                <li id="recycle_bin">
-                    <a href="#" title="Contains the files and folders you have deleted."
-                    ><span></span>Recycle Bin</a
-                    >
-                </li>
-                <li id="terminal">
+                {/* <li id="terminal">
                     <a href="/home/terminal" title="Contains the files and folders you have deleted."
                     ><span></span>Terminal</a
                     >
-                </li>
+                </li> */}
                 <li id="github">
-                    <a href="https://github.com/LeeDenise" target="_blank" title="My GitHub"
+                    <a href="https://github.com/LeeDenise" target="_blank" title="My GitHub" rel="noreferrer"
                     ><span></span>GitHub</a
                     >
                 </li>
                 <li id="linkedin">
-                    <a href="https://www.linkedin.com/in/dohui-denise-lee/" target="_blank" title="My Linked In"
+                    <a href="https://www.linkedin.com/in/dohui-denise-lee/" target="_blank" title="My Linked In" rel="noreferrer"
                     ><span></span>Linked In</a
+                    >
+                </li>
+                <li id="recycle_bin">
+                    <a href="/home" title="Contains the files and folders you have deleted."
+                    ><span></span>Recycle Bin</a
                     >
                 </li>
             </ul>
@@ -85,30 +113,12 @@ export function Home() {
             <Row id="desktop">
                 <Outlet />
             </Row>
-            {/* <Row id="footer" className="title-bar">
-                <div id= "startbuttoncontainer" className="title-bar-controls">
-                    <button id="startbutton"><img src="./images/start_button.png" /></button>
-                </div>
-            </Row> */}
             <Row id="footer" className="taskbar">
-                {/* <div id="start"> */}
-                    <h2 id="startbutton">
-                        <a href="#" title="Click here to begin"
-                            ><span id="startbuttongraphic"></span></a
-                        >
-                    </h2>
-                {/* </div> */}
-
-                {/* <ul id="quicklaunch">
-                    <li id="quick_desktop">
-                        <a href="#" title="Show Desktop"><span></span>Show Desktop</a>
-                    </li>
-                    <li id="quick_firefox">
-                        <a href="http://www.mozilla.org/products/firefox/" title="Firefox"
-                        ><span></span>Firefox</a
-                        >
-                    </li>
-                </ul> */}
+                <h2 id="startbutton">
+                    <a href="/home" title="Click here to begin"
+                        ><span id="startbuttongraphic"></span></a
+                    >
+                </h2>
             </Row>
         </Container>
         </>
@@ -147,7 +157,7 @@ export function Calculator(props) {
     );
 }
 
-export function Terminal(props) {
+{/* export function Terminal(props) {
     const navigate = useNavigate();
     const routeChange = () => {
         navigate('/home')
@@ -170,7 +180,7 @@ export function Terminal(props) {
             </div>
         </div>
     );
-}
+} */}
 
 export function MyProjects(props) {
     const navigate = useNavigate();
@@ -192,13 +202,13 @@ export function MyProjects(props) {
             case 'tab-1':
                 setAriaSelected1('true')
                 return (
-                    <article role="tabpanel" hiddenId="tab-1">
-                    <h3>Tab Content</h3>
+                    <article role="tabpanel" id="tab-1">
+                    <a style={{color: "black"}} href="https://denise-springboot.herokuapp.com/" target="_blank" rel="noreferrer">
+                        <h3>Spring Rehabilitation Center</h3>
+                        <img style={{width: "100%"}} src={springprojectpic} alt="springboot project homepage"/>
+                    </a>
                     <p>
-                        You create the tabs, you would use a <code>menu role="tablist"</code> element then for the tab titles you use a <code>button</code> with the <code>aria-controls</code> parameter set to match the relative <code>role="tabpanel"</code>'s element.
-                    </p>
-                    <p>
-                        Read more at <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Tab_Role" target="_blank">MDN Web docs - ARIA: tab role</a>
+                        Spring Rehabilitation Center is a web application for the hospital staff and the patients. Patients can make a booking with a therapist when they want. The admin user can manage the appoints and the information of patients and employees.
                     </p>
                     </article>
                 );
@@ -206,18 +216,36 @@ export function MyProjects(props) {
             case 'tab-2':
                 setAriaSelected2('true')
                 return (
-                    <article role="tabpanel" hiddenId="tab-2">
-                        <h3>More...</h3>
-                        <p>This tab contains a GroupBox</p>
+                    <article role="tabpanel" id="tab-2">
+                        <a style={{color: "black"}} href="https://isthiskoreanwatermelon.netlify.app/" target="_blank" rel="noreferrer">
+                            <h3>Machine Learning</h3>
+                            <img style={{width: "100%"}} src={mlprojectpic} alt="korean watermelone recongnition site"/>
+                        </a>
+                        <p>
+                            An image recognition website that can tell the fruit on the webcam is Korean watermelon or not. This project is made of Google Teachable Machine to recognize images.                        
+                        </p>
                     </article>
                 );
                 break;
             case 'tab-3':
                 setAriaSelected3('true')
                 return (
-                    <article role="tabpanel" hiddenId="tab-3">
+                    <article role="tabpanel" id="tab-3">
                         <h3>Tab 3</h3>
                         <p>Lorem Ipsum Dolor Sit</p>
+                    </article>
+                );
+                break;
+            default:
+                setAriaSelected1('true')
+                return (
+                    <article role="tabpanel" id="tab-1">
+                    <h3>Tab Content</h3>
+                    <p>
+                        You create the tabs, you would use a <code>menu role="tablist"</code> element then for the tab titles you use a <code>button</code> with the <code>aria-controls</code> parameter set to match the relative <code>role="tabpanel"</code>'s element.
+                    </p>
+                    <p>
+                    </p>
                     </article>
                 );
                 break;
@@ -237,9 +265,9 @@ export function MyProjects(props) {
         <div className="window-body">
             <section className="tabs" style={{ maxWidth: '900px', maxHeight:'630px' }}>
                 <menu role="tablist" aria-label="Sample Tabs">
-                    <button role="tab" aria-selected= {ariaSelected1} aria-controls="tab-1" onClick={() => setProject('tab-1')}>Tab A</button>
-                    <button role="tab" aria-selected= {ariaSelected2} aria-controls="tab-2" onClick={() => setProject('tab-2')}>Tab B</button>
-                    <button role="tab" aria-selected= {ariaSelected3} aria-controls= "tab-3" onClick={() => setProject('tab-3')}>Tab C</button>
+                    <button role="tab" aria-selected= {ariaSelected1} aria-controls="tab-1" onClick={() => setProject('tab-1')}>Spring Rehabilitation Center</button>
+                    <button role="tab" aria-selected= {ariaSelected2} aria-controls="tab-2" onClick={() => setProject('tab-2')}>Machine Learning</button>
+                    <button role="tab" aria-selected= {ariaSelected3} aria-controls= "tab-3" onClick={() => setProject('tab-3')}>Job Searching</button>
                 </menu>
                 <SwitchDisplay value={ project } />
             </section>
@@ -264,25 +292,58 @@ export function EmailMe(props) {
                     <button aria-label="Close" onClick = { routeChange } />
                 </div>
             </div>
-            <div className="window-body">
-                <div className="field-row-stacked" style={{width: '380px'}}>
-                    <label htmlFor="text22"> Name</label>
-                    <input id="text22" type="text" />
+            <form className="gform" method="POST" action="https://script.google.com/macros/s/AKfycbxraU8ELTSaadN6YijAFcRrIfum6y28XAUTE_WBx5fZi3Inkld0o0uCeg/exec">
+                <div className="window-body">
+                    <div className="field-row-stacked" style={{width: '380px'}}>
+                        <label htmlFor="text22"> Name</label>
+                        <input name="name" id="text22" type="text" />
+                    </div>
+                    <div className="field-row-stacked" style={{width: '380px'}}>
+                        <label htmlFor="text22"> Email</label>
+                        <input name="email" id="text22" type="text" />
+                    </div>
+                    <div className="field-row-stacked" style={{width: '380px'}}>
+                        <label htmlFor="text23">Subject</label>
+                        <input name="subject" id="text23" type="text" />
+                    </div>
+                    <div className="field-row-stacked" style={{width: '380px'}}>
+                        <label htmlFor="text24">Message</label>
+                        <textarea name="message" id="text24" rows={32} defaultValue={""} />
+                    </div>
                 </div>
-                <div className="field-row-stacked" style={{width: '380px'}}>
-                    <label htmlFor="text22"> Email</label>
-                    <input id="text22" type="text" />
-                </div>
-                <div className="field-row-stacked" style={{width: '380px'}}>
-                    <label htmlFor="text23">Subject</label>
-                    <input id="text23" type="text" />
-                </div>
-                <div className="field-row-stacked" style={{width: '380px'}}>
-                    <label htmlFor="text24">Additional notes</label>
-                    <textarea id="text24" rows={32} defaultValue={""} />
-                </div>
-            </div>
-            <button style={{marginRight: '10px', marginTop:'10px', float:'right'}}>Send</button>
+                <button type="submit" style={{marginRight: '10px', marginTop:'10px', float:'right'}}>Send</button>
+            </form>
+
         </div>
+
+    );
+}
+
+export function Myprofile (props) {
+    const navigate = useNavigate();
+    const routeChange = () => {
+        navigate('/home')
+    }
+
+    return (
+        <div className="window" style={{width: '400px'}}>
+            <div className="title-bar">
+            <div className="title-bar-text">Who am I?</div>
+            <div className="title-bar-controls">
+                <button aria-label="Minimize" />
+                <button aria-label="Maximize" />
+                <button aria-label="Close" onClick = { routeChange } />
+            </div>
+            </div>
+            <div className="window-body">
+                <h4 style={{textAlign: "center"}}>Hello world!</h4>
+                <img style={{borderRadius: "50px", width: "50%", marginLeft: "auto", marginRight: "auto", display:"block"}} src={mypicture} alt="korean watermelone recongnition site"/>
+                <p style={{fontSize: "small", textAlign: "center"}}> Hi! My name is <strong>Denise Lee</strong>. I'm a student in software development at Southern Alberta Institute of Technology. I'm a forwarding-looking person who has a responsibility and open to new ideas with various forms of input. I enjoy every step of the development from discussion and collaboration to coding.
+                </p>
+                <button style={{marginLeft: "auto", marginRight: "auto", display: "block"}}>
+                   <a href="/home/emailme" style={{color: "black"}}>Contact me</a> 
+                </button>
+            </div>
+      </div>
     );
 }

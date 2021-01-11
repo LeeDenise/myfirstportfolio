@@ -1,32 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import './App.css';
 import { Routes, Route } from "react-router-dom";
 import {
-   Signup,
    Loading,
+   Signup,
    Home,
    Calculator,
-   Terminal,
+  //  Terminal,
    MyProjects,
-   EmailMe
+   EmailMe,
+   Myprofile
 } from "./pages"
 
 function App() {
-  // const [loading, setLoading] = useState(true);
-
-  // if (loading) {
-  //   return (
-  //     <Route path="/loading" element={<Loading />}></Route>
-  //     );
-  // }
-
   return (
     <>
       <Routes>
-        <Route path="/" element={<Signup />}></Route>
+        <Route path="/" element={<Loading />}></Route>
+        <Route path="/signup" element={<Signup />}></Route>
         <Route path="/home" element={<Home />}>
+          <Route path="/myprofile" element={<Myprofile />}></Route>
           <Route path="/calc" element={<Calculator />}></Route>
-          <Route path="/terminal" element={<Terminal />}></Route>
+          {/* <Route path="/terminal" element={<Terminal />}></Route> */}
           <Route path="/myprojects" element={<MyProjects />}></Route>
           <Route path="/emailme" element={<EmailMe />}></Route>
         </Route>  

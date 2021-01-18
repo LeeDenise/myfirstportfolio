@@ -204,11 +204,11 @@ export function MyProjects(props) {
                 return (
                     <article role="tabpanel" id="tab-1">
                     <a style={{color: "black"}} href="https://denise-springboot.herokuapp.com/" target="_blank" rel="noreferrer">
-                        <h3>Spring Rehabilitation Center</h3>
+                        <h3>Appointment Booking Web Application</h3>
                         <img style={{width: "100%"}} src={springprojectpic} alt="springboot project homepage"/>
                     </a>
                     <p>
-                        Spring Rehabilitation Center is a web application for the hospital staff and the patients. Patients can make a booking with a therapist when they want. The admin user can manage the appoints and the information of patients and employees.
+                        A web application that allows users to create, read, update, delete the booking information and login. 
                     </p>
                     </article>
                 );
@@ -218,7 +218,7 @@ export function MyProjects(props) {
                 return (
                     <article role="tabpanel" id="tab-2">
                         <a style={{color: "black"}} href="https://isthiskoreanwatermelon.netlify.app/" target="_blank" rel="noreferrer">
-                            <h3>Machine Learning</h3>
+                            <h3>Image Recognition Website</h3>
                             <img style={{width: "100%"}} src={mlprojectpic} alt="korean watermelone recongnition site"/>
                         </a>
                         <p>
@@ -231,8 +231,8 @@ export function MyProjects(props) {
                 setAriaSelected3('true')
                 return (
                     <article role="tabpanel" id="tab-3">
-                        <h3>Tab 3</h3>
-                        <p>Lorem Ipsum Dolor Sit</p>
+                        <h3>Upcoming...</h3>
+                        <p>Next project for movie review searching using the third-party api is on progress...</p>
                     </article>
                 );
                 break;
@@ -338,7 +338,7 @@ export function Myprofile (props) {
             <div className="window-body">
                 <h4 style={{textAlign: "center"}}>Hello world!</h4>
                 <img style={{borderRadius: "50px", width: "50%", marginLeft: "auto", marginRight: "auto", display:"block"}} src={mypicture} alt="korean watermelone recongnition site"/>
-                <p style={{fontSize: "small", textAlign: "center"}}> Hi! My name is <strong>Denise Lee</strong>. I'm a student in software development at Southern Alberta Institute of Technology. I'm a forwarding-looking person who has a responsibility and open to new ideas with various forms of input. I enjoy every step of the development from discussion and collaboration to coding.
+                <p style={{fontSize: "small", textAlign: "center"}}> Hi! My name is <strong>Denise Lee</strong>. I'm a student majoring in software development at Southern Alberta Institute of Technology. I'm a forward-looking person open to new ideas with various forms of input. I enjoy every step of the development from discussion and collaboration to coding.
                 </p>
                 <button style={{marginLeft: "auto", marginRight: "auto", display: "block"}}>
                    <a href="/home/emailme" style={{color: "black"}}>Contact me</a> 
